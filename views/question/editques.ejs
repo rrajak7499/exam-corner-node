@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/css/sec5.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="name"><b><%= greetMsg%> </b></div>
+      <div class="logo">
+        <img src="/img/2.png" class="logo-img" width="100%" height="100%" />
+      </div>
+      <div class="main">
+        <% question.forEach(value => {%>
+        <form action="/editques/update" method="POST">
+          <div>
+            <input type="hidden" name="id" value="<%= value._id %>" />
+            Question:
+            <input
+              type="text"
+              name="question"
+              id="question"
+              value="<%= value.question %>"
+            />
+            Option1
+            <input
+              type="text"
+              name="option1"
+              id="option1"
+              value="<%= value.option1 %>"
+            />
+            Option2
+            <input
+              type="text"
+              name="option2"
+              id="option2"
+              value="<%= value.option2 %>"
+            />
+            Option3
+            <input
+              type="text"
+              name="option3"
+              id="option3"
+              value="<%= value.option3 %>"
+            />
+            Option4
+            <input
+              type="text"
+              name="option4"
+              id="option4"
+              value="<%= value.option4 %>"
+            />
+            <input type="submit" value="update" />
+            <input type="submit" formaction="/editques/delete" value="delete" />
+          </div>
+        </form>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

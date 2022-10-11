@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <div>
+      <div class="name"><b></b></div>
+      <div class="logo1">
+        <img
+          src="/img/logo_png.png"
+          class="logo-img"
+          width="100%"
+          height="100%"
+        />
+      </div>
+      <div class="q-main">
+        <a href="/addquestion"
+          ><button class="submit">Add next question</button></a
+        >
+
+        <form action="/delete/update" method="post">
+          <div class="view-que">
+            <label class="label" for="QUESTION">Question:</label>
+            <input class="input" type="hidden" name="id" value="<%= qes._id %>" />
+            <input
+			class="input"
+              type="text"
+              name="question"
+              id="question"
+              value="<%= qes.question %>"
+            />
+			</div>
+           
+			
+			<div class="view-que">
+				<label class="label1" >Option A:</label>
+            
+            <input class="input" type="text" name="a" id="a" value="<%= qes.a %>" />
+		</div>
+		<div class="view-que">
+            <label class="label1" >Option B:</label>
+            <input class="input" type="text" name="b" id="b" value="<%= qes.b %>" />
+		</div>
+		<div class="view-que">
+            <label class="label1" >Option C:</label>
+            <input class="input" type="text" name="c" id="c" value="<%= qes.c %>" />
+		</div>
+		<div class="view-que">
+			<label class="label1" >Option D:</label>
+            <input class="input" type="text" name="d" id="d" value="<%= qes.d %>" />
+            </div>
+			<br>
+			<div class="contain">
+			<button class="submit sub1" type="submit " value="update" >Update</button>
+			<button class="submit sub1" type="submit" formaction="/delete/delete" value="delete" >
+				Delete
+			</button>
+		</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

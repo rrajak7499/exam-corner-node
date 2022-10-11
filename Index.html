@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exam Corner</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    Name <input type="text" id="namebox" /> <br />
+    Roll No <input type="text" id="rollbox" /> <br />
+    Secion <input type="text" id="secbox" /> <br />
+    Gender <input type="text" id="genbox" /> <br />
+
+    <br />
+    <br />
+
+    <button id="insert">Insert</button>
+    <button id="select">Select</button>
+    <button id="create">Create</button>
+    <button id="delete">Delete</button>
+    <!--Firebase Libraries-->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+
+    <script id="MainScript">
+      // Ready file
+      var nameV, rollV, secV, genV;
+      function Ready() {
+        nameV = document.getElementById("namebox").value;
+        rollV = document.getElementById("rollbox").value;
+        secV = document.getElementById("secbox").value;
+        genV = document.getElementById("genbox").value;
+      }
+
+      // Insert process
+      document.getElementById("insert").onclick = function () {
+        Ready();
+        firebase
+          .database()
+          .ref("student/" + rollV)
+          .set({
+            NameofStudent: nameV,
+            RollNo: rollV,
+            Section: secV,
+            Gender: genV,
+          });
+      };
+    </script>
+  </body>
+</html>

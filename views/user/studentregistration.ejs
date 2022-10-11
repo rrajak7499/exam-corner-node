@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Student Regestration</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+  </head>
+  <body class="studentregestration">
+    <div>
+      <div class="name"><b>Exam Corner</b></div>
+      <div class="logo1">
+        <img
+          src="/img/logo_png.png"
+          class="logo-img"
+          width="100%"
+          height="100%"
+        />
+      </div>
+      <div class="reg-main">
+        <form action="/userlog" method="POST">
+          <h1 class="user_login">Registration</h1>
+          <div class="formDiv">
+            <label class="label" for="Name">Name</label>
+            <input type="text" class="input" id="Name" name="name" />
+          </div>
+          <div class="formDiv">
+            <label class="label" for="Mobile">Mobile</label>
+            <input type="number" class="input" id="Mobile" name="number" />
+          </div>
+          <div class="formDiv">
+            <label class="label" for="Email">Email</label>
+            <input type="email" class="input" id="Email" name="email" />
+          </div>
+          <div class="formDiv">
+            <label class="label" for="Password">Password</label>
+            <input
+              type="password"
+              class="input"
+              id="Password"
+              name="password"
+            />
+          </div>
+          <br />
+          <button class="submit" value="submit">Submit</button>
+          <% if(emailStatus === 'false') {%>
+          <div class="valid">email is already used</div>
+          <%}%>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

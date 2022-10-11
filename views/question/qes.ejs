@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/qes.css" type="text/css" />
+
+    <title>Database</title>
+  </head>
+  <body>
+    <% qes.forEach(value => {%>
+    <form action="/viewquestion/update" method="post">
+      <div class="list">
+        <div class="quen">
+          <input
+            class="input"
+            type="hidden"
+            name="id"
+            value="<%= value._id %>"
+          />
+          <label for="">Question:</label>
+          <input
+            class="input"
+            type="text"
+            name="question"
+            id="question"
+            value="<%= value.question %>"
+          />
+        </div>
+        <div class="optn-list">
+          <div class="optn">
+            <label for="">A:</label>
+            <input
+              class="input"
+              type="text"
+              name="a"
+              id="a"
+              value="<%= value.a %>"
+            />
+          </div>
+          <div class="optn">
+            <label for="">B:</label>
+            <input
+              class="input"
+              type="text"
+              name="b"
+              id="b"
+              value="<%= value.b %>"
+            />
+          </div>
+          <div class="optn">
+            <label for="">C:</label>
+            <input
+              class="input"
+              type="text"
+              name="c"
+              id="c"
+              value="<%= value.c %>"
+            />
+          </div>
+          <div class="optn">
+            <label for="">D:</label>
+            <input
+              class="input"
+              type="text"
+              name="d"
+              id="d"
+              value="<%= value.d %>"
+            />
+          </div>
+          <div class="lables">
+            <button class="submit" type="submit" value="update">Submit</button>
+            <button
+              class="submit"
+              type="submit"
+              formaction="/viewquestion/delete"
+              value="delete"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <% }) %>
+  </body>
+</html>
